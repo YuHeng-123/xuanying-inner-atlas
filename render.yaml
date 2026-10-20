@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: xuanying-bazi-api
+    runtime: python
+    plan: free
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /healthz
+    envVars:
+      - key: CORS_ORIGINS
+        sync: false

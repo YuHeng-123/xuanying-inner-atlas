@@ -1,0 +1,22 @@
+{
+  "license": "CC0",
+  "source": "https://polyhaven.com/license",
+  "assets": [
+    {
+      "name": "fine_grained_wood",
+      "url": "https://polyhaven.com/a/fine_grained_wood"
+    },
+    {
+      "name": "leather_red_02",
+      "url": "https://polyhaven.com/a/leather_red_02"
+    },
+    {
+      "name": "rustic_stone_wall_02",
+      "url": "https://polyhaven.com/a/rustic_stone_wall_02"
+    },
+    {
+      "name": "rusty_metal_02",
+      "url": "https://polyhaven.com/a/rusty_metal_02"
+    }
+  ]
+}

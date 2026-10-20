@@ -1,0 +1,32 @@
+# Local credentials and environment overrides
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+
+# Python environments and caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Frontend dependencies and generated build output
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/.env.local
+frontend/.env.*.local
+
+# Local work products and non-production archives
+work/
+outputs/
+frontend/assets-archive/
+
+# Additional build and tooling caches
+frontend/.next-experience/
+frontend/tsconfig.tsbuildinfo
+*.tsbuildinfo
+*.log

@@ -1,0 +1,4 @@
+{
+  "lunar-color.jpg": { "source": "https://svs.gsfc.nasa.gov/4720/", "credit": "NASA’s Scientific Visualization Studio", "original": "lroc_color_2k.jpg", "purpose": "Moon surface visualization; decorative chart core, not a birth-derived astronomy calculation" },
+  "lunar-height.jpg": { "source": "https://svs.gsfc.nasa.gov/4720/", "credit": "NASA’s Scientific Visualization Studio", "original": "ldem_3_8bit.jpg", "purpose": "Subtle bump mapping" }
+}
