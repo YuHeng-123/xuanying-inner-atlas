@@ -45,17 +45,9 @@ npm run dev
 
 ## 跨设备访问与部署
 
-`frontend/.env.example` 中的 `http://127.0.0.1:8000` **仅供前端和后端运行在同一台电脑上的本机开发**。若用手机或其他电脑打开前端，浏览器中的 `127.0.0.1` 指向访问者自己的设备，不是运行 FastAPI 的电脑。
+当前公开预览通过 GitHub Pages 托管静态前端，发布方式见 [部署说明](DEPLOY.md)。Pages 不运行 FastAPI，因此依赖 `/api/v1/...` 的服务端解读、人际分析和部分星次功能，需要另行托管后端后才能完整使用。
 
-要保留私有源码并发布公开网页，按 [部署说明](DEPLOY.md) 使用 GitHub Private、Vercel 和 Render。
-
-部署时，在构建前设置：
-
-```text
-NEXT_PUBLIC_API_BASE_URL=https://api.example.com
-```
-
-该值填写后端 origin，不要附加 `/api/v1`；代码会追加接口路径。`NEXT_PUBLIC_*` 会打包进前端静态资源，修改后要重新构建并部署前端。后端需能从访问者浏览器所在网络访问，并将前端站点来源配置到 `CORS_ORIGINS`（逗号分隔）。公开部署应使用 HTTPS，并避免把开发用的 `CORS_ORIGINS=*` 当作生产安全策略。若前后端经同一反向代理提供，可填写前端 origin（如 `https://app.example.com`），并让代理转发 `/api/v1/*` 到 FastAPI。
+`frontend/.env.example` 中的 `http://127.0.0.1:8000` **仅供前端和后端运行在同一台电脑上的本机开发**。若用手机或其他电脑打开前端，浏览器中的 `127.0.0.1` 指向访问者自己的设备，不是运行 FastAPI 的电脑。若之后配置独立后端，在前端构建前设置 `NEXT_PUBLIC_API_BASE_URL` 为后端 HTTPS origin；后端同时需要把前端来源加入 `CORS_ORIGINS`。
 
 ## 排盘口径
 

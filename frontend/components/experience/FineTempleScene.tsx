@@ -10,6 +10,7 @@ import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment
 import type { TempleSceneProps } from "./TempleScene";
 import type { ExperiencePhase, RitualEvent, SceneData } from "./experienceTypes";
 import type { ExperienceObjectId } from "./experienceObjects";
+import { publicAsset } from "@/lib/publicAsset";
 
 export interface FineSceneProps extends TempleSceneProps {
   phase: ExperiencePhase;
@@ -34,8 +35,8 @@ function semantic(object: THREE.Object3D): ExperienceObjectId | null {
 }
 
 function RefinedAssets(props: FineSceneProps) {
-  const gltf = useLoader(GLTFLoader, "/temple/refined-temple-ao.glb", (loader) => {
-    const decoder = new DRACOLoader(); decoder.setDecoderPath("/temple/draco/"); decoder.setWorkerLimit(1);
+  const gltf = useLoader(GLTFLoader, publicAsset("/temple/refined-temple-ao.glb"), (loader) => {
+    const decoder = new DRACOLoader(); decoder.setDecoderPath(publicAsset("/temple/draco/")); decoder.setWorkerLimit(1);
     loader.setDRACOLoader(decoder);
   });
   const gl = useThree((state) => state.gl);

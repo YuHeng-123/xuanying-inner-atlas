@@ -9,6 +9,7 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment.js";
 import type { FineSceneProps } from "./FineTempleScene";
 import type { ExperienceObjectId } from "./experienceObjects";
+import { publicAsset } from "@/lib/publicAsset";
 import RelationshipSculpture from "./RelationshipSculpture";
 import RelationshipWorld from "./RelationshipWorld";
 
@@ -32,8 +33,8 @@ function semantic(object: THREE.Object3D) {
 }
 
 function Assets(props: ObservatoryProps) {
-  const gltf = useLoader(GLTFLoader, "/observatory/observatory.glb", (loader) => {
-    const decoder = new DRACOLoader(); decoder.setDecoderPath("/temple/draco/"); decoder.setWorkerLimit(1); loader.setDRACOLoader(decoder);
+  const gltf = useLoader(GLTFLoader, publicAsset("/observatory/observatory.glb"), (loader) => {
+    const decoder = new DRACOLoader(); decoder.setDecoderPath(publicAsset("/temple/draco/")); decoder.setWorkerLimit(1); loader.setDRACOLoader(decoder);
   });
   const gl = useThree((s) => s.gl);
   const grain = useMemo(() => {
