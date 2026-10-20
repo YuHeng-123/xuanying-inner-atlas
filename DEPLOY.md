@@ -5,13 +5,13 @@
 ## 发布前检查
 
 - 仓库根目录是本项目目录，不能把 `work/`、`outputs/`、`.env`、`frontend/.env.local` 或本地构建缓存提交上去。根 `.gitignore` 已排除这些内容；`frontend/assets-archive/` 仅是未被页面使用的旧模型，也不会提交。
-- 当前项目没有 Git 元数据。首次上传前先在 GitHub 创建空的 **Private** 仓库，再从本机初始化 Git、提交并推送本项目。
+- 本机已建立 Git 仓库、`main` 分支和部署准备提交。创建 GitHub 私有空仓库后，把它设为 `origin` 并推送 `main`。
 - Vercel 与 Render 都需要在各自网站连接 GitHub，并仅授予该私有仓库访问权限。不要把账号密码或 Token 发到聊天里。
 
 ## 部署顺序
 
-1. 在个人 GitHub 账号下创建空的 Private 仓库，例如 `xuanying-bazi`。不要勾选初始化 README、`.gitignore` 或 License；本项目已经有这些文件。
-2. 将项目根目录推送到该仓库。推送前检查 `git status`、`git check-ignore` 和暂存文件清单，确认环境文件、工作记录、截图、缓存没有进入提交。
+1. 在个人 GitHub 账号下创建空的 Private 仓库，例如 `xuanying-inner-atlas`。不要勾选初始化 README、`.gitignore` 或 License；本项目已经有这些文件。
+2. 将这个空仓库添加为本地 `origin` 并推送 `main`。推送前检查 `git status`、`git check-ignore` 和提交文件清单，确认环境文件、工作记录、截图、缓存没有进入提交。
 3. 在 Vercel 导入该私有仓库。将 **Root Directory** 设为 `frontend`，保留 Next.js 默认构建设置。可先部署一次以取得正式站点地址；这次构建的 API 地址尚未配置，功能接口在完成第 6 步前不可用。
 4. 在 Render 用仓库根目录的 `render.yaml` 创建 Blueprint，并在创建流程中只选择免费实例。配置已固定到本地验证过的 Python 3.11.11。`CORS_ORIGINS` 填 Vercel 正式站点的完整来源，例如 `https://your-project.vercel.app`，不要填写路径或末尾 `/`。
 5. 等待 Render 部署完成，打开 Render 服务的 Events/Logs，确认 `/healthz` 健康检查通过，并复制服务的 HTTPS 地址。
